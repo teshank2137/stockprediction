@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>api</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            color: rgb(61, 85, 226);
+            text-decoration: none;
+        }
+
+        header {
+            height: 70px;
+            background-color: crimson;
+            color: azure;
+            margin: 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 12px;
+        }
+
+        h2,
+        p,
+        div,
+        footer {
+            margin-left: 12px;
+        }
+    </style>
+
+</head>
+
+<body style="margin: 0">
+    <header>
+        <h1>API CheatSheet</h1>
+    </header>
+    <h2>Click on link to get response</h2>
+    <p>Here for demo I'm Using TCS.NS as stock name</p>
+    <div>
+        <ul>
+            <li>
+                To get buy sell condition for today:
+                <a href="/predict/TCS.NS">/predict/<i style='color:rgb(81, 137, 241)'>[stockname]</i></a>
+            </li>
+            <li>
+                To get Current market price:
+                <a href="/current/TCS.NS">/current/<i style='color:rgb(81, 137, 241)'>[stockname]</i></a>
+            </li>
+            <li>
+                To get 1 week data:
+                <a href="/week/TCS.NS">/week/<i style='color:rgb(81, 137, 241)'>[stockname]</i></a>
+            </li>
+            <li>
+                To get Tommorow predicted Value:
+                <a href="/rawpredict/TCS.NS">/rawpredict/<i style='color:rgb(81, 137, 241)'>[stockname]</i></a>
+            </li>
+            <li>
+                To get full raw data for n days moving averages and all:
+                <a href="/rawdata/TCS.NS/30">/rawdata/<i style='color:rgb(81, 137, 241)'>[stockname]/[days]</i></a>
+            </li>
+        </ul>
+
+    </div>
+    <footer style="margin-top:50px">
+        Please use following StockNames only
+        <ul>
+            <li>TCS.NS</li>
+            <li>SBIN.NS</li>
+            <li>HDFCBANK.NS</li>
+            <li>RELIANCE.NS</li>
+        </ul>
+    </footer>
+</body>
+
+</html>
