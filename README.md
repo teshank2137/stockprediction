@@ -6,11 +6,11 @@ A SVM model hosted with Flask to predict next days closing price of a Particular
 ![banner](https://github.com/teshank2137/stockprediction/blob/main/media/ss.JPG?raw=true)
 *StartUp page*
 
-###How To get Stockname
+### How To get Stockname
 - Open [Yahoo Finance ](https://finance.yahoo.com/) and select get the Stock's Symbol from there
 - Replace *[stockname]* with your stock symbol in the following endpoints
 ---
-##Endpoints
+## Endpoints
 - **To get buy sell hold flag for today**
 `GET https://baseurl/predict/[stockname]`
 - **To get list of Stocks**
