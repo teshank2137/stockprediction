@@ -1,10 +1,12 @@
 from datetime import date, datetime, timedelta
 import pandas as pd
-import pandas_datareader as web
 import numpy as np
 from sklearn.svm import SVR
 import json
 import matplotlib.pyplot as plt
+from pandas_datareader import data as pdr
+import yfinance as yf
+yf.pdr_override()
 
 plt.style.use('fivethirtyeight')
 today = date.today()
@@ -12,7 +14,7 @@ now = today.strftime('%Y-%m-%d')
 
 
 def model(symbol, e=now, s='2015-01-01'):
-    df = web.DataReader(symbol, data_source='yahoo', start=s, end=e)
+    df = pdr.get_data_yahoo(symbol, start=s, end=e)
 
     close = df['Adj Close']
     prev_close = [np.nan]
@@ -98,7 +100,7 @@ def buy_sell_short(df, stock, flag=0):
 def current(stock):
     today = date.today()
     now = today.strftime('%Y-%m-%d')
-    df2 = web.DataReader(stock, data_source='yahoo', start=now, end=now)
+    df2 = pdr.get_data_yahoo(stock, start=now, end=now)
 
     # df2 = df.drop(['High', 'Low', 'Open', 'Close', 'Volume'], axis=1)
 
@@ -134,7 +136,7 @@ def getraw(stock, day):
     today = date.today()
     now = today.strftime('%Y-%m-%d')
     start = today - timedelta(days=(day+300))
-    df2 = web.DataReader(stock, data_source='yahoo',
+    df2 = pdr.get_data_yahoo(stock,
                          start=start.strftime('%Y-%m-%d'), end=now)
     df2.index = df2.index.strftime("%Y-%m-%d")
 
