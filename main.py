@@ -27,9 +27,10 @@ def signup(stock):
     with open(f'{stock}flag.txt', 'r') as flag_saver:
         curr_flag = int(flag_saver.read())
     buy, sell, flag = logic.buy_sell_short(
-        dataframe, stock, flag=curr_flag)
+        dataframe, stock, curr_flag)
     with open(f'{stock}flag.txt', 'w') as flag_saver:
         flag_saver.write(str(flag))
+    print(flag)
     if len(buy) != 0:
         buyFlag = True
     else:
