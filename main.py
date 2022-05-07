@@ -24,8 +24,13 @@ def signup(stock):
     # print(e)
     dataframe, pred = logic.model(stock, e)
     # print(dataframe)
-    with open(f'{stock}flag.txt', 'r') as flag_saver:
-        curr_flag = int(flag_saver.read())
+    try:
+        with open(f'{stock}flag.txt', 'r') as flag_saver:
+            curr_flag = int(flag_saver.read())
+    except FileNotFoundError:
+        with open(f'{stock}flag.txt', 'w') as flag_saver:
+            flag_saver.write(str(0))
+            curr_flag = 0
     buy, sell, flag = logic.buy_sell_short(
         dataframe, stock, curr_flag)
     with open(f'{stock}flag.txt', 'w') as flag_saver:

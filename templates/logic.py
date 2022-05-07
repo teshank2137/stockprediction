@@ -119,8 +119,8 @@ def week(stock):
     today = date.today()
     now = today.strftime('%Y-%m-%d')
     start = today - timedelta(days=7)
-    df2 = web.DataReader(stock, data_source='yahoo',
-                         start=start.strftime('%Y-%m-%d'), end=now)
+    df2 = pdr.get_data_yahoo(stock, data_source='yahoo',
+                             start=start.strftime('%Y-%m-%d'), end=now)
     df2.index = df2.index.strftime("%Y-%m-%d")
 
     df2 = df2.rename(columns={'Adj Close': 'adj-close'})
@@ -137,7 +137,7 @@ def getraw(stock, day):
     now = today.strftime('%Y-%m-%d')
     start = today - timedelta(days=(day+300))
     df2 = pdr.get_data_yahoo(stock,
-                         start=start.strftime('%Y-%m-%d'), end=now)
+                             start=start.strftime('%Y-%m-%d'), end=now)
     df2.index = df2.index.strftime("%Y-%m-%d")
 
     for i in range(10, 210, 10):
